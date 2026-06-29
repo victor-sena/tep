@@ -3,7 +3,7 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // --- 1. Header Scroll Effect ---
     const header = document.querySelector('.header');
     const handleScroll = () => {
@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
         burger.addEventListener('click', () => {
             // Toggle Nav
             nav.classList.toggle('nav-active');
-            
+
             // Animate Burger
             burger.classList.toggle('toggle');
-            
+
             // Custom burger lines morph
             const lines = burger.querySelectorAll('div');
             if (burger.classList.contains('toggle')) {
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const showSlide = (n) => {
             slides.forEach(slide => slide.classList.remove('active'));
             dots.forEach(dot => dot.classList.remove('active'));
-            
+
             currentSlide = (n + slides.length) % slides.length;
             slides[currentSlide].classList.add('active');
             if (dots[currentSlide]) {
@@ -90,10 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const track = document.querySelector('.testimonial-track');
     const testimonialSlides = document.querySelectorAll('.testimonial-slide');
     const carouselDotsContainer = document.querySelector('.carousel-dots');
-    
+
     if (track && testimonialSlides.length > 0) {
         let currentIndex = 0;
-        
+
         // Dynamic dots creation
         testimonialSlides.forEach((_, idx) => {
             const dot = document.createElement('button');
@@ -101,14 +101,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (idx === 0) dot.classList.add('active');
             dot.setAttribute('aria-label', `Testimonial page ${idx + 1}`);
             carouselDotsContainer.appendChild(dot);
-            
+
             dot.addEventListener('click', () => {
                 goToTestimonial(idx);
             });
         });
-        
+
         const carouselDots = document.querySelectorAll('.carousel-dot');
-        
+
         const goToTestimonial = (index) => {
             currentIndex = index;
             track.style.transform = `translateX(-${currentIndex * 100}%)`;
@@ -139,21 +139,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 5. Accordion (FAQ) ---
     const accordions = document.querySelectorAll('.accordion-header');
-    
+
     accordions.forEach(header => {
-        header.addEventListener('click', function() {
+        header.addEventListener('click', function () {
             const item = this.parentElement;
             const content = this.nextElementSibling;
-            
+
             // Toggle active state on item
             item.classList.toggle('active');
-            
+
             if (item.classList.contains('active')) {
                 content.style.maxHeight = content.scrollHeight + 'px';
             } else {
                 content.style.maxHeight = '0';
             }
-            
+
             // Close other items (optional but clean)
             const siblingItems = Array.from(item.parentElement.children).filter(child => child !== item);
             siblingItems.forEach(sibling => {
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     };
-    
+
     // Support modern Intersection Observer
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries) => {
@@ -196,18 +196,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 7. Services Category Highlight (Smooth Scroll Navigation) ---
     const serviceButtons = document.querySelectorAll('.services-nav-btn');
     serviceButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             serviceButtons.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
-            
+
             const targetId = this.getAttribute('data-target');
             const targetElement = document.getElementById(targetId);
-            
+
             if (targetElement) {
                 const headerOffset = 100;
                 const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
                 const offsetPosition = elementPosition - headerOffset;
-                
+
                 window.scrollTo({
                     top: offsetPosition,
                     behavior: 'smooth'
