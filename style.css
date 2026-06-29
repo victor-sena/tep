@@ -310,10 +310,6 @@ a {
     padding: 1.5rem 0;
 }
 
-.header .reverse {
-    display: none;
-}
-
 .header.scrolled {
     background: rgba(250, 248, 245, 0.85);
     backdrop-filter: blur(12px);
@@ -322,36 +318,18 @@ a {
     padding: 1rem 0;
 }
 
-.header.scrolled .reverse {
-    display: block;
+.logo {
+    transition: var(--transition-smooth);
 }
 
-.header.scrolled .default {
-    display: none;
+.header.scrolled .logo {
+    filter: invert(1);
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.logo {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.logo-dot {
-    width: 10px;
-    height: 10px;
-    background-color: var(--color-accent-sun);
-    border-radius: 50%;
-    display: inline-block;
 }
 
 .nav-links {
