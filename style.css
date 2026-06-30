@@ -456,6 +456,14 @@ a {
     transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.slide-content :is(h1, h2, h3, h4, h5, h6) {
+    color: #fff;
+}
+
+.slide-content p {
+    color: var(--color-off-white);
+}
+
 .slide.active .slide-content {
     transform: translateY(0);
 }
