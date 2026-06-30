@@ -19,6 +19,8 @@
     /* Slate 500 */
     --color-text-light: #f8fafc;
     /* White/Light gray */
+    --color-off-white: #F2F0EF;
+    /* Off-white */
 
     /* California Vibes Accent Colors */
     --color-accent-sun: #e09f3e;
@@ -322,7 +324,11 @@ a {
     transition: var(--transition-smooth);
 }
 
-.header.scrolled .logo {
+.header-light:not(.scrolled) {
+    color: var(--color-off-white);
+}
+
+.header-light:not(.scrolled) .logo {
     filter: invert(1);
 }
 
@@ -359,6 +365,10 @@ a {
     transition: transform 0.25s ease-out;
 }
 
+.header-light:not(.scrolled) .nav-links a::after {
+    background-color: var(--color-accent-sun);
+}
+
 .nav-links a:hover::after,
 .nav-links a.active::after {
     transform: scaleX(1);
@@ -367,6 +377,11 @@ a {
 
 .nav-links a.active {
     color: var(--color-accent-ocean);
+    font-weight: 700;
+}
+
+.header-light:not(.scrolled) .nav-links a.active {
+    color: var(--color-accent-sun);
     font-weight: 700;
 }
 
