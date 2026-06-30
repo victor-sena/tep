@@ -87,6 +87,7 @@ dd {
 ul[role='list'],
 ol[role='list'] {
     list-style: none;
+    padding: 0;
 }
 
 h1,
@@ -997,6 +998,10 @@ textarea.form-control {
     color: var(--color-text-light);
     padding: var(--space-lg) 0 var(--space-md) 0;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer :is(h1, h2, h3, h4, h5, h6) {
+    color: var(--color-text-light);
 }
 
 .footer-grid {
