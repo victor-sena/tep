@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const startSlideShow = () => {
-            slideInterval = setInterval(nextSlide, 6000); // 6 seconds auto rotation
+            slideInterval = setInterval(nextSlide, 12000); // 1200 seconds auto rotation
         };
 
         const stopSlideShow = () => {
