@@ -32,16 +32,52 @@
     --color-accent-clay: #9a031e;
     /* Warm clay/terracotta */
 
+
+    /* Step -3: 10.4167px → 10.24px */
+    --step--3: clamp(0.64rem, 0.6556rem + -0.0201vw, 0.651rem);
+    /* Step -2: 12.5px → 12.8px */
+    --step--2: clamp(0.7813rem, 0.7736rem + 0.0341vw, 0.8rem);
+    /* Step -1: 15px → 16px */
+    --step--1: clamp(0.9375rem, 0.9119rem + 0.1136vw, 1rem);
+    /* Step 0: 18px → 20px */
+    --step-0: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
+    /* Step 1: 21.6px → 25px */
+    --step-1: clamp(1.35rem, 1.2631rem + 0.3864vw, 1.5625rem);
+    /* Step 2: 25.92px → 31.25px */
+    --step-2: clamp(1.62rem, 1.4837rem + 0.6057vw, 1.9531rem);
+    /* Step 3: 31.104px → 39.0625px */
+    --step-3: clamp(1.944rem, 1.7405rem + 0.9044vw, 2.4414rem);
+    /* Step 4: 37.3248px → 48.8281px */
+    --step-4: clamp(2.3328rem, 2.0387rem + 1.3072vw, 3.0518rem);
+    /* Step 5: 44.7898px → 61.0352px */
+    --step-5: clamp(2.7994rem, 2.384rem + 1.8461vw, 3.8147rem);
+    /* Step 6: 53.7477px → 76.2939px */
+    --step-6: clamp(3.3592rem, 2.7828rem + 2.5621vw, 4.7684rem);
+    /* Step 7: 64.4973px → 95.3674px */
+    --step-7: clamp(4.0311rem, 3.2418rem + 3.508vw, 5.9605rem);
+
+    /* Space 3xs: 5px → 5px */
+    --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+    /* Space 2xs: 9px → 10px */
+    --space-2xs: clamp(0.5625rem, 0.5369rem + 0.1136vw, 0.625rem);
+    /* Space xs: 14px → 15px */
+    --space-xs: clamp(0.875rem, 0.8494rem + 0.1136vw, 0.9375rem);
+    /* Space s: 18px → 20px */
+    --space-s: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
+    /* Space m: 27px → 30px */
+    --space-m: clamp(1.6875rem, 1.6108rem + 0.3409vw, 1.875rem);
+    /* Space l: 36px → 40px */
+    --space-l: clamp(2.25rem, 2.1477rem + 0.4545vw, 2.5rem);
+    /* Space xl: 54px → 60px */
+    --space-xl: clamp(3.375rem, 3.2216rem + 0.6818vw, 3.75rem);
+    /* Space 2xl: 72px → 80px */
+    --space-2xl: clamp(4.5rem, 4.2955rem + 0.9091vw, 5rem);
+    /* Space 3xl: 108px → 120px */
+    --space-3xl: clamp(6.75rem, 6.4432rem + 1.3636vw, 7.5rem);
+
     /* Font Families */
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Plus Jakarta Sans', sans-serif;
-
-    /* Spacing */
-    --space-xs: 0.5rem;
-    --space-sm: 1rem;
-    --space-md: 2rem;
-    --space-lg: 4rem;
-    --space-xl: 8rem;
 
     /* UI Elements */
     --border-radius-sm: 8px;
@@ -67,8 +103,8 @@ html {
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
     scroll-behavior: smooth;
-    font-size: 16px;
     background-color: var(--color-bg-primary);
+    scrollbar-gutter: stable;
 }
 
 body,
@@ -166,10 +202,10 @@ a {
    2. REUSABLE UTILITIES & LAYOUTS
    ========================================================================== */
 
-.container {
+.wrapper {
     max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 var(--space-md);
+    margin-inline: auto;
+    padding-inline: var(--space-s);
 }
 
 .section {
@@ -190,23 +226,23 @@ a {
 
 /* Typography Scale */
 .text-huge {
-    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-size: var(--step-7);
     font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 0.95;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-m);
 }
 
 .text-large {
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: var(--step-5);
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.05;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
 }
 
 .text-medium {
-    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    font-size: var(--step-1);
     font-weight: 500;
     line-height: 1.4;
     color: var(--color-text-muted);
@@ -224,7 +260,7 @@ a {
     padding: 1.25rem 2.5rem;
     font-family: var(--font-heading);
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: var(--step-0);
     border-radius: var(--border-radius-lg);
     border: none;
     cursor: pointer;
@@ -277,6 +313,38 @@ a {
     color: var(--color-bg-dark);
 }
 
+.text-step-0 {
+    font-size: var(--step-0);
+}
+
+.text-step-1 {
+    font-size: var(--step-1);
+}
+
+.text-step-2 {
+    font-size: var(--step-2);
+}
+
+.text-step-3 {
+    font-size: var(--step-3);
+}
+
+.text-step-4 {
+    font-size: var(--step-4);
+}
+
+.text-step-5 {
+    font-size: var(--step-5);
+}
+
+.text-step-6 {
+    font-size: var(--step-6);
+}
+
+.text-step-7 {
+    font-size: var(--step-7);
+}
+
 /* Background Gradients & Glassmorphism */
 .gradient-bg {
     background: radial-gradient(circle at 10% 20%, rgba(224, 159, 62, 0.08) 0%, rgba(42, 111, 151, 0.05) 90%);
@@ -289,7 +357,7 @@ a {
     border: 1px solid rgba(255, 255, 255, 0.4);
     box-shadow: var(--shadow-subtle);
     border-radius: var(--border-radius-md);
-    padding: var(--space-md);
+    padding: var(--space-m);
     transition: var(--transition-smooth);
 }
 
@@ -354,7 +422,7 @@ a {
 .nav-links a {
     font-family: var(--font-heading);
     font-weight: 500;
-    font-size: 1.05rem;
+    font-size: var(--step--1);
     position: relative;
 }
 
@@ -476,7 +544,7 @@ a {
     position: relative;
     z-index: 10;
     max-width: 800px;
-    padding: var(--space-md);
+    padding: var(--space-m);
     color: var(--color-text-light);
     transform: translateY(30px);
     transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -496,7 +564,7 @@ a {
 
 .slider-controls {
     position: absolute;
-    bottom: var(--space-lg);
+    bottom: var(--space-xl);
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -523,12 +591,12 @@ a {
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--space-md);
-    margin-top: var(--space-lg);
+    gap: var(--space-m);
+    margin-top: var(--space-xl);
 }
 
 .feature-card {
-    padding: var(--space-md);
+    padding: var(--space-m);
     border-radius: var(--border-radius-md);
     background-color: var(--color-bg-secondary);
     border: 1px solid rgba(0, 0, 0, 0.04);
@@ -547,7 +615,7 @@ a {
     height: 220px;
     overflow: hidden;
     border-radius: var(--border-radius-sm);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
 }
 
 .feature-img-wrapper img {
@@ -565,7 +633,7 @@ a {
 .about-split {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-lg);
+    gap: var(--space-xl);
     align-items: center;
 }
 
@@ -604,7 +672,7 @@ a {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
-    margin-top: var(--space-md);
+    margin-top: var(--space-m);
     flex-wrap: wrap;
 }
 
@@ -627,23 +695,23 @@ a {
 }
 
 .services-section-title {
-    margin-top: var(--space-lg);
+    margin-top: var(--space-xl);
     border-bottom: 2px solid rgba(0, 0, 0, 0.05);
-    padding-bottom: var(--space-sm);
-    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-xs);
+    margin-bottom: var(--space-m);
 }
 
 .services-grid-detailed {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: var(--space-md);
-    margin-bottom: var(--space-lg);
+    gap: var(--space-m);
+    margin-bottom: var(--space-xl);
 }
 
 .service-detail-card {
     background: var(--color-bg-secondary);
     border-radius: var(--border-radius-md);
-    padding: var(--space-md);
+    padding: var(--space-m);
     box-shadow: var(--shadow-subtle);
     border-left: 5px solid var(--color-accent-ocean);
     transition: var(--transition-smooth);
@@ -660,14 +728,14 @@ a {
 .rates-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-md);
-    margin-top: var(--space-lg);
+    gap: var(--space-m);
+    margin-top: var(--space-xl);
 }
 
 .rate-card {
     background: var(--color-bg-secondary);
     border-radius: var(--border-radius-md);
-    padding: 3rem var(--space-md);
+    padding: 3rem var(--space-m);
     text-align: center;
     box-shadow: var(--shadow-subtle);
     border: 1px solid rgba(0, 0, 0, 0.04);
@@ -697,39 +765,39 @@ a {
     background: var(--color-accent-sun);
     color: var(--color-bg-dark);
     padding: 0.35rem 1rem;
-    font-size: 0.75rem;
+    font-size: var(--step--2);
     font-weight: 700;
     border-radius: 30px;
     letter-spacing: 0.05em;
 }
 
 .rate-time {
-    font-size: 1.75rem;
+    font-size: var(--step-2);
     font-weight: 700;
     font-family: var(--font-heading);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
 }
 
 .rate-price {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: var(--step-5);
     font-weight: 800;
     color: var(--color-accent-ocean);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-m);
     font-family: var(--font-heading);
 }
 
 .rate-price span {
-    font-size: 1rem;
+    font-size: var(--step--1);
     font-weight: 500;
     color: var(--color-text-muted);
 }
 
 .rate-features {
     list-style: none;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-m);
     color: var(--color-text-muted);
     text-align: left;
-    padding-left: var(--space-sm);
+    padding-left: var(--space-xs);
 }
 
 .rate-features li {
@@ -750,14 +818,14 @@ a {
 .terms-split {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-lg);
-    margin-top: var(--space-md);
+    gap: var(--space-xl);
+    margin-top: var(--space-m);
 }
 
 .terms-column h3 {
     border-bottom: 2px solid var(--color-accent-sun);
     padding-bottom: 0.5rem;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
 }
 
 .terms-list {
@@ -768,14 +836,14 @@ a {
     margin-bottom: 0.75rem;
     position: relative;
     padding-left: 1.5rem;
-    font-size: 0.95rem;
+    font-size: var(--step--1);
     color: var(--color-text-muted);
 }
 
 .terms-list li::before {
     content: '•';
     color: var(--color-accent-sun);
-    font-size: 1.5rem;
+    font-size: var(--step-1);
     position: absolute;
     left: 0;
     top: -4px;
@@ -790,10 +858,10 @@ a {
 
 .testimonial-carousel-container {
     max-width: 900px;
-    margin: var(--space-lg) auto 0 auto;
+    margin: var(--space-xl) auto 0 auto;
     position: relative;
     overflow: hidden;
-    padding: var(--space-md);
+    padding: var(--space-m);
 }
 
 .testimonial-track {
@@ -804,16 +872,16 @@ a {
 .testimonial-slide {
     min-width: 100%;
     box-sizing: border-box;
-    padding: 0 var(--space-md);
+    padding: 0 var(--space-m);
 }
 
 .testimonial-bubble {
-    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-size: var(--step-1);
     font-style: italic;
     color: var(--color-text-main);
     line-height: 1.5;
     position: relative;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-m);
     font-weight: 300;
 }
 
@@ -838,7 +906,7 @@ a {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
-    margin-top: var(--space-md);
+    margin-top: var(--space-m);
 }
 
 .carousel-dot {
@@ -860,7 +928,7 @@ a {
 .contact-split {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: var(--space-lg);
+    gap: var(--space-xl);
 }
 
 .contact-info {
@@ -870,14 +938,14 @@ a {
 }
 
 .contact-method {
-    margin-top: var(--space-md);
+    margin-top: var(--space-m);
 }
 
 .contact-method-item {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
 }
 
 .contact-icon {
@@ -895,7 +963,7 @@ a {
 .social-links {
     display: flex;
     gap: 1rem;
-    margin-top: var(--space-md);
+    margin-top: var(--space-m);
 }
 
 .social-btn {
@@ -961,7 +1029,7 @@ textarea.form-control {
    8. FAQ ACCORDION SECTION
    ========================================================================== */
 .faq-accordion-container {
-    margin-top: var(--space-lg);
+    margin-top: var(--space-xl);
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
@@ -970,14 +1038,14 @@ textarea.form-control {
 .accordion-item {
     background: var(--color-bg-secondary);
     border-radius: var(--border-radius-sm);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
     box-shadow: var(--shadow-subtle);
     border: 1px solid rgba(0, 0, 0, 0.03);
     overflow: hidden;
 }
 
 .accordion-header {
-    padding: 1.5rem var(--space-md);
+    padding: 1.5rem var(--space-m);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1003,7 +1071,7 @@ textarea.form-control {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s;
-    padding: 0 var(--space-md);
+    padding: 0 var(--space-m);
     color: var(--color-text-muted);
 }
 
@@ -1021,7 +1089,7 @@ textarea.form-control {
 .footer {
     background-color: var(--color-bg-dark);
     color: var(--color-text-light);
-    padding: var(--space-lg) 0 var(--space-md) 0;
+    padding: var(--space-xl) 0 var(--space-m) 0;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -1032,15 +1100,15 @@ textarea.form-control {
 .footer-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr;
-    gap: var(--space-lg);
-    margin-bottom: var(--space-lg);
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
 }
 
 .footer-logo {
     font-family: var(--font-heading);
     font-weight: 800;
     font-size: 1.8rem;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -1054,7 +1122,7 @@ textarea.form-control {
 
 .footer-col h4 {
     font-size: 1.2rem;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
     position: relative;
     padding-bottom: 0.5rem;
 }
@@ -1097,7 +1165,7 @@ textarea.form-control {
 
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding-top: var(--space-md);
+    padding-top: var(--space-m);
     text-align: center;
     color: #64748b;
     font-size: 0.9rem;
@@ -1109,12 +1177,12 @@ textarea.form-control {
 @media screen and (max-width: 1024px) {
     .about-split {
         grid-template-columns: 1fr;
-        gap: var(--space-md);
+        gap: var(--space-m);
     }
 
     .contact-split {
         grid-template-columns: 1fr;
-        gap: var(--space-md);
+        gap: var(--space-m);
     }
 
     .footer-grid {
@@ -1124,7 +1192,7 @@ textarea.form-control {
 
 @media screen and (max-width: 990px) {
     .section {
-        padding: var(--space-lg) 0;
+        padding: var(--space-xl) 0;
     }
 
     .nav-links {
@@ -1179,16 +1247,16 @@ textarea.form-control {
 
     .terms-split {
         grid-template-columns: 1fr;
-        gap: var(--space-md);
+        gap: var(--space-m);
     }
 
     .footer-grid {
         grid-template-columns: 1fr;
-        gap: var(--space-md);
+        gap: var(--space-m);
     }
 
     .slider-controls {
-        bottom: var(--space-md);
+        bottom: var(--space-m);
     }
 }
 
