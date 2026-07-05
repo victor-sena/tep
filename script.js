@@ -29,16 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
             // Animate Burger
             burger.classList.toggle('toggle');
 
-            // Custom burger lines morph
-            const lines = burger.querySelectorAll('div');
-            if (burger.classList.contains('toggle')) {
-                lines[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
-                lines[1].style.opacity = '0';
-                lines[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
-            } else {
-                lines[0].style.transform = 'none';
-                lines[1].style.opacity = '1';
-                lines[2].style.transform = 'none';
+            // Toggle Body overlay
+            document.body.classList.toggle('nav-open');
+        });
+
+        // Close nav when clicking outside
+        document.addEventListener('click', (e) => {
+            if (nav.classList.contains('nav-active') && !nav.contains(e.target) && !burger.contains(e.target)) {
+                nav.classList.remove('nav-active');
+                burger.classList.remove('toggle');
+                document.body.classList.remove('nav-open');
             }
         });
     }
