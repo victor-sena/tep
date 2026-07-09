@@ -203,14 +203,14 @@ a {
    ========================================================================== */
 
 .wrapper {
+    position: relative;
     max-width: 1400px;
     margin-inline: auto;
     padding-inline: var(--space-s);
 }
 
 .section {
-    padding: var(--space-xl) 0;
-    position: relative;
+    padding-block: var(--space-xl);
 }
 
 .section-dark {
@@ -230,7 +230,6 @@ a {
     font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 0.95;
-    margin-bottom: var(--space-m);
 }
 
 .text-large {
@@ -238,7 +237,6 @@ a {
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.05;
-    margin-bottom: var(--space-xs);
 }
 
 .text-medium {
@@ -345,6 +343,106 @@ a {
     font-size: var(--step-7);
 }
 
+.text-color-main {
+    color: var(--color-text-main);
+}
+
+.text-color-light {
+    color: var(--color-text-light);
+}
+
+.text-color-muted {
+    color: var(--color-text-muted);
+}
+
+.text-color-accent-ocean {
+    color: var(--color-accent-ocean);
+}
+
+.text-color-accent-sun {
+    color: var(--color-accent-sun);
+}
+
+.section-intro {
+    max-width: var(--section-intro-max-width, 65ch);
+    text-align: var(--section-intro-align, center);
+    margin-inline: var(--section-intro-inline, auto);
+}
+
+.intro-subtitle {
+    color: var(--color-accent-ocean);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* Card */
+.card {
+    padding-inline: var(--card-padding-inline, var(--space-m));
+    padding-block: var(--card-padding-block, var(--space-m));
+    border-radius: var(--card-radius, var(--border-radius-md));
+    background-color: var(--card-bg, var(--color-bg-secondary));
+    border: var(--card-border-width, 100px) solid var(--card-border-color, rgba(0, 0, 0, 0.04));
+    box-shadow: var(--card-shadow, var(--shadow-subtle));
+    transition: var(--transition-smooth);
+}
+
+/* Stack */
+.stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.stack>* {
+    margin-block: 0;
+}
+
+.stack-3xs>*+* {
+    margin-block-start: var(--space-3xs);
+}
+
+.stack-2xs>*+* {
+    margin-block-start: var(--space-2xs);
+}
+
+.stack-xs>*+* {
+    margin-block-start: var(--space-xs);
+}
+
+.stack-s>*+* {
+    margin-block-start: var(--space-s);
+}
+
+.stack-m>*+* {
+    margin-block-start: var(--space-m);
+}
+
+.stack-l>*+* {
+    margin-block-start: var(--space-l);
+}
+
+.stack-xl>*+* {
+    margin-block-start: var(--space-xl);
+}
+
+.stack-2xl>*+* {
+    margin-block-start: var(--space-2xl);
+}
+
+.stack-3xl>*+* {
+    margin-block-start: var(--space-3xl);
+}
+
+/* Cluster */
+.cluster {
+    display: flex;
+    flex-wrap: var(--cluster-wrap, wrap);
+    gap: var(--cluster-gap, var(--space-s));
+    justify-content: var(--cluster-main-axis, flex-start);
+    align-items: var(--cluster-cross-axis, center);
+}
+
 /* Background Gradients & Glassmorphism */
 .gradient-bg {
     background: radial-gradient(circle at 10% 20%, rgba(224, 159, 62, 0.08) 0%, rgba(42, 111, 151, 0.05) 90%);
@@ -413,10 +511,7 @@ a {
 }
 
 .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-    align-items: center;
+    --cluster-gap: var(--space-l);
 }
 
 .nav-links a {
@@ -469,10 +564,10 @@ a {
 }
 
 .burger div {
-    width: 25px;
-    height: 2px;
+    width: 1.5625rem;
+    height: .125rem;
     background-color: var(--color-text-main);
-    margin: 5px;
+    margin: .3125rem;
     transition: var(--transition-smooth);
 }
 
@@ -543,7 +638,7 @@ a {
 .slide-content {
     position: relative;
     z-index: 10;
-    max-width: 800px;
+    max-width: 65ch;
     padding: var(--space-m);
     color: var(--color-text-light);
     transform: translateY(30px);
@@ -602,8 +697,6 @@ a {
     border: 1px solid rgba(0, 0, 0, 0.04);
     box-shadow: var(--shadow-subtle);
     transition: var(--transition-smooth);
-    display: flex;
-    flex-direction: column;
 }
 
 .feature-card:hover {
@@ -615,7 +708,6 @@ a {
     height: 220px;
     overflow: hidden;
     border-radius: var(--border-radius-sm);
-    margin-bottom: var(--space-xs);
 }
 
 .feature-img-wrapper img {
@@ -757,7 +849,7 @@ a {
 }
 
 .rate-card.featured::before {
-    content: 'MAIS CONVENIENTE';
+    content: 'BEST VALUE';
     position: absolute;
     top: -15px;
     left: 50%;
