@@ -733,6 +733,10 @@ a {
     align-items: center;
 }
 
+.about-instructor .intro-subtitle {
+    color: var(--color-accent-sun);
+}
+
 .about-image-wrapper {
     position: relative;
 }
